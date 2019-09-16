@@ -1,0 +1,36 @@
+<h1 class="display-8">Student Registration</h1>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" (reset)="onReset(form)">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="stdService.formData.id">
+    <div class="form-group">
+        <input name="fullName" #fullName="ngModel" [(ngModel)]="stdService.formData.fullName" class="form-control" placeholder="Full Name" required>
+        <div *ngIf="fullName.invalid && fullName.touched" class="validation-error">Required</div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <input name="standard" #standard="ngModel" [(ngModel)]="stdService.formData.standard" class="form-control" placeholder="Standard" required>
+            <div *ngIf="standard.invalid && standard.touched" class="validation-error">Required</div>
+        </div>
+        <div class="form-group col-md-8">
+            <input name="email" #email="ngModel" [(ngModel)]="stdService.formData.email" class="form-control" placeholder="Email" required>
+            <div *ngIf="email.invalid && email.touched" class="validation-error">Required</div>
+        </div>
+    </div>    
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input name="studentCode" #studentCode="ngModel" [(ngModel)]="stdService.formData.studentCode" class="form-control" placeholder="Student Code" required>
+            <div *ngIf="studentCode.invalid && studentCode.touched" class="validation-error">Required</div>
+        </div>
+        <div class="form-group col-md-6">
+            <input name="mobile" #mobile="ngModel" [(ngModel)]="stdService.formData.mobile" class="form-control" placeholder="Mobile" required>
+            <div *ngIf="mobile.invalid && mobile.touched" class="validation-error">Required</div>
+        </div>
+    </div> 
+    <div class="form-row">
+        <div class="form-group col-md-6">
+                <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">Submit</button>
+        </div>
+        <div class="form-group col-md-6">
+                <button type="reset" class="btn btn-lg btn-block btn-danger">Clear</button>
+        </div>
+    </div>   
+</form>
