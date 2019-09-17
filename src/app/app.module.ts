@@ -14,13 +14,19 @@ import { StudentComponent } from './students/student/student.component';
 import { StudentListComponent } from './students/student-list/student-list.component';
 import { StudentService } from './shared/student.service';
 import { from } from 'rxjs';
+import { LoginComponent } from './login/login.component';
+import { SignInComponent } from './login/sign-in/sign-in.component';
+import { SignUpComponent } from './login/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentsComponent,
     StudentComponent,
-    StudentListComponent
+    StudentListComponent,
+    LoginComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
