@@ -17,6 +17,14 @@ import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
 import { SignInComponent } from './login/sign-in/sign-in.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {AuthService} from './shared/auth.service';
+import { AuthGuard } from './shared/auth.guard';
+import { UserService } from './shared/user.service';
+import { UserResolver } from './shared/user.resolver';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+
 
 @NgModule({
   declarations: [
@@ -35,9 +43,11 @@ import { SignUpComponent } from './login/sign-up/sign-up.component';
     AngularFirestoreModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ReactiveFormsModule,
+    AngularFireAuthModule
   ],
-  providers: [StudentService],
+  providers: [StudentService,AuthService,AuthGuard,UserService,UserResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

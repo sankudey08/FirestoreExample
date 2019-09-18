@@ -1,23 +1,25 @@
 <h2>Sign Up</h2>
-<form #form="ngForm" autocomplete="off">
+<form [formGroup]="registerForm">
     <div class="form-group">
-        <input name="emailId" #emailId  class="form-control" placeholder="Email Id" required>
-        <div *ngIf="emailId.invalid && emailId.touched" class="validation-error">Email Id Required</div>
+            <label>Email address</label>
+            <input type="email" formControlName="email" class="form-control">
     </div>
     <div class="form-group">
-        <input type="password"  name="password" #password  class="form-control" placeholder="Password" required>
-        <div *ngIf="password.invalid && password.touched" class="validation-error">Password is Required</div>
-    </div>
-    <div class="form-group">
-        <input type="password"  name="confPassword" #confPassword  class="form-control" placeholder="Confirm Password" required>
-        <div *ngIf="confPassword.invalid && confPassword.touched" class="validation-error">Password is Required</div>
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="password">
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-                <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">Submit</button>
+                <button type="submit" (click)="tryRegister(registerForm.value)" class="btn btn-lg btn-block btn-info">Sign Up</button>
         </div>
         <div class="form-group col-md-6">
                 <button type="reset" class="btn btn-lg btn-block btn-danger">Clear</button>
         </div>
     </div>
 </form>
+
+<div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <p>Sign In <a href="/signin">Sign In</a></p>
+        </div>
+      </div>

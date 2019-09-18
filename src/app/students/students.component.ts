@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-students',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
+  
 
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
+  }
+  doLogout(){
+    this.authService.doLogout();
   }
 
 }
